@@ -1,11 +1,62 @@
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>password generator</title>
+        <link rel="stylesheet" href="styles.css" />
+        <script src="scripts.js" defer></script>
     </head>
     <body>
-        <p>hello</p>
+        <div class="container">
+            <div class="pass-section">
+                <div class="pass-section-main">
+                    <div id="generated-pass">click gernate pass ...</div>
+                    <div id="custom-pass">
+                        <div>
+                            <label for="pass-length">Password Length:</label>
+                            <input
+                                type="number"
+                                name="passLength"
+                                id="pass-length"
+                                min="0"
+                                max="30"
+                            />
+                            <input type="range" min="0" max="30" />
+                        </div>
+                        <div>
+                            <label for="uppercase">Uppercase</label>
+                            <input type="checkbox" name="uppercase" /><br />
+                            <label for="lowercase">Lowercase</label>
+                            <input type="checkbox" name="lowercase" /><br />
+                            <label for="numbers">Numbers</label>
+                            <input type="checkbox" name="numbers" /><br />
+                            <label for="symbols">Symbols</label>
+                            <input type="checkbox" name="symbols" /><br />
+                            <button>click to generate</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tutorial">
+                <img
+                    class="lock-logo"
+                    src="images/lock.png"
+                    alt="logo of a security log"
+                />
+                <p>what is a strong password?</p>
+                <p>
+                    at least 15 characters <br />
+                    uppercase letters<br />
+                    lowercase letters<br />
+                    numbers<br />
+                    symbols, such as:<br />
+                    ` ! ” ? $ ? % ^ & * ( ) <br />
+                    _ – + = { [ } ] : ; @<br />
+                    ‘ ~ # | < , > . ? /<br />
+                </p>
+            </div>
+        </div>
     </body>
 </html>

@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: rgb(228, 228, 228);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Barlow", sans-serif;
+}
+
+.container {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 70vh;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgb(204, 204, 204);
+}
+
+/* generate password section */
+
+.pass-section {
+    border-right: solid 1px gray;
+    width: 50%;
+    height: 100%;
+}
+.lock-logo {
+    width: 150px;
+}
+
+/* tutorial section */
+
+.tutorial {
+    width: 50%;
+    height: 100%;
+}
