@@ -47,7 +47,6 @@ main {
 
 .pass-section {
     width: 50%;
-    height: 100%;
     padding: 30px;
     background-color: rgb(255, 255, 255);
 }
@@ -115,7 +114,6 @@ input[type="number"] {
 
 .tutorial {
     width: 50%;
-    height: 100%;
     padding: 30px;
     text-align: center;
     color: white;
@@ -137,4 +135,23 @@ input[type="number"] {
     text-decoration: none;
 
     color: rgb(163, 163, 163);
+}
+
+/* responsive design */
+
+@media screen and (max-width: 1050px) {
+    .container {
+        width: 80%;
+    }
+}
+@media screen and (max-width: 725px) {
+    .container {
+        display: block;
+    }
+    .pass-section {
+        width: 100%;
+    }
+    .tutorial {
+        width: 100%;
+    }
 }
