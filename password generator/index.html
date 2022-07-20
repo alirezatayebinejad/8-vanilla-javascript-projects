@@ -16,7 +16,7 @@
                     <div class="pass-section-main">
                         <p class="ur-pass">your password:</p>
                         <div id="generated-pass">click generate pass...</div>
-                        <p class="copy">click here to copy</p>
+                        <p id="copy">click here to copy</p>
                         <div id="custom-pass">
                             <div>
                                 <label for="pass-length"
@@ -25,11 +25,18 @@
                                 <input
                                     type="number"
                                     name="passLength"
-                                    id="pass-length"
+                                    id="pass-length-box"
                                     min="0"
                                     max="30"
+                                    value="8"
                                 />
-                                <input type="range" min="0" max="30" />
+                                <input
+                                    id="pass-length-range"
+                                    type="range"
+                                    min="0"
+                                    max="30"
+                                    value="8"
+                                />
                             </div>
                             <div class="checkbox-inputs">
                                 <div>
@@ -61,7 +68,17 @@
                                     /><br />
                                 </div>
                             </div>
-                            <button>Generate Password</button>
+                            <p
+                                id="warning"
+                                style="
+                                    color: red;
+                                    text-align: center;
+                                    display: none;
+                                "
+                            >
+                                at least check one checkboxes
+                            </p>
+                            <button id="generat-btn">Generate Password</button>
                         </div>
                     </div>
                 </div>
