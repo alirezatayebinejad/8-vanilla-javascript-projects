@@ -9,54 +9,86 @@
         <script src="scripts.js" defer></script>
     </head>
     <body>
-        <div class="container">
-            <div class="pass-section">
-                <div class="pass-section-main">
-                    <div id="generated-pass">click gernate pass ...</div>
-                    <div id="custom-pass">
-                        <div>
-                            <label for="pass-length">Password Length:</label>
-                            <input
-                                type="number"
-                                name="passLength"
-                                id="pass-length"
-                                min="0"
-                                max="30"
-                            />
-                            <input type="range" min="0" max="30" />
-                        </div>
-                        <div>
-                            <label for="uppercase">Uppercase</label>
-                            <input type="checkbox" name="uppercase" /><br />
-                            <label for="lowercase">Lowercase</label>
-                            <input type="checkbox" name="lowercase" /><br />
-                            <label for="numbers">Numbers</label>
-                            <input type="checkbox" name="numbers" /><br />
-                            <label for="symbols">Symbols</label>
-                            <input type="checkbox" name="symbols" /><br />
-                            <button>click to generate</button>
+        <h1 class="title">Password Generator</h1>
+        <main>
+            <div class="container">
+                <div class="pass-section">
+                    <div class="pass-section-main">
+                        <p class="ur-pass">your password:</p>
+                        <div id="generated-pass">click generate pass...</div>
+                        <p class="copy">click here to copy</p>
+                        <div id="custom-pass">
+                            <div>
+                                <label for="pass-length"
+                                    >Password Length:
+                                </label>
+                                <input
+                                    type="number"
+                                    name="passLength"
+                                    id="pass-length"
+                                    min="0"
+                                    max="30"
+                                />
+                                <input type="range" min="0" max="30" />
+                            </div>
+                            <div class="checkbox-inputs">
+                                <div>
+                                    <label for="uppercase">Uppercase</label>
+                                    <input
+                                        type="checkbox"
+                                        name="uppercase"
+                                        id="uppercase"
+                                    /><br />
+                                    <label for="lowercase">Lowercase</label>
+                                    <input
+                                        type="checkbox"
+                                        name="lowercase"
+                                        id="lowercase"
+                                    /><br />
+                                </div>
+                                <div>
+                                    <label for="numbers">Numbers</label>
+                                    <input
+                                        type="checkbox"
+                                        name="numbers"
+                                        id="numbers"
+                                    /><br />
+                                    <label for="symbols">Symbols</label>
+                                    <input
+                                        type="checkbox"
+                                        name="symbols"
+                                        id="symbols"
+                                    /><br />
+                                </div>
+                            </div>
+                            <button>Generate Password</button>
                         </div>
                     </div>
                 </div>
+                <div class="tutorial">
+                    <img
+                        class="lock-logo"
+                        src="images/lock.png"
+                        alt="logo of a security log"
+                    />
+                    <p><b> what is a strong password?</b></p>
+                    <br />
+                    <p>
+                        at least 15 characters <br />
+                        uppercase letters<br />
+                        lowercase letters<br />
+                        numbers<br />
+                        symbols, such as:<br />
+                        ` ! ” ? $ ? % ^ & * ( ) <br />
+                        _ – + = { [ } ] : ; @<br />
+                        ‘ ~ # | < , > . ? /<br />
+                    </p>
+                </div>
             </div>
-            <div class="tutorial">
-                <img
-                    class="lock-logo"
-                    src="images/lock.png"
-                    alt="logo of a security log"
-                />
-                <p>what is a strong password?</p>
-                <p>
-                    at least 15 characters <br />
-                    uppercase letters<br />
-                    lowercase letters<br />
-                    numbers<br />
-                    symbols, such as:<br />
-                    ` ! ” ? $ ? % ^ & * ( ) <br />
-                    _ – + = { [ } ] : ; @<br />
-                    ‘ ~ # | < , > . ? /<br />
-                </p>
-            </div>
-        </div>
+        </main>
+        <p class="copyright">
+            created by Alireza Tayebinejad from
+            <a href="https://github.com/vibracode">@vibracode</a>
+        </p>
     </body>
 </html>
