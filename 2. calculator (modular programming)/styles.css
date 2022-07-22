@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500&display=swap");
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Barlow", sans-serif;
+	background-color: #e8e8e8;
+}
+.title {
+	text-align: center;
+	color: #4e4e4e;
+	margin-top: 25px;
+}
+#container {
+	display: flex;
+	justify-content: space-around;
+}
+#calculator {
+	width: 350px;
+	min-height: 500px;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	border-radius: 20px;
+	background: linear-gradient(145deg, #d1d1d1, #f8f8f8);
+	box-shadow: 10px 10px 20px #cacaca, -10px -10px 20px #ffffff;
+	margin-top: 30px;
+}
+.calc-box {
+	width: 90%;
+	min-height: 100px;
+	align-items: center;
+	margin-top: 20px;
+	border-radius: 10px;
+	background: #e8e8e8;
+	box-shadow: inset 7px 7px 14px #cccccc, inset -7px -7px 14px #ffffff;
+	color: #6e6e6e;
+	text-align: center;
+	padding-top: 40px;
+	font-size: 22px;
+}
+.numbers {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 0px;
+	background-color: transparent;
+	margin: 20px 0;
+}
+.num {
+	width: 20%;
+	height: 65px;
+	border-radius: 14px;
+	background: #e8e8e8;
+	box-shadow: 5px 5px 10px #d3d3d3, -5px -5px 10px #fdfdfd;
+	font-size: 25px;
+	text-align: center;
+	padding-top: 15px;
+	margin: 7px;
+	color: rgb(78, 78, 78);
+	cursor: pointer;
+	transition: background 0.3s;
+}
+.num:active {
+	background: linear-gradient(145deg, #d1d1d1, #f8f8f8);
+}
+.num.extra {
+	border-radius: 14px;
+	background: #121212;
+	color: #afafaf;
+}
+.num.extra:active {
+	background-color: #303030;
+}
+
+/* copy right */
+
+.copyright {
+	text-align: center;
+	margin: 15px;
+	color: rgb(68, 68, 68);
+}
+.copyright a {
+	text-decoration: none;
+
+	color: rgb(17, 17, 17);
+}
