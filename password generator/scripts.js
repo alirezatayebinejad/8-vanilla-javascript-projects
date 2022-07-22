@@ -10,62 +10,39 @@ let numbersCheck = document.querySelector("#numbers");
 let symbolsCheck = document.querySelector("#symbols");
 let btnGenerate = document.querySelector("#generat-btn");
 let passLength = passLengthBox.value;
-let checkboxes = document.querySelectorAll(".check");
-let generatedPass = [];
-console.log(checkboxes);
+let upperCaseChars = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+let lowerCaseChars = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+let numbersChar = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+let symbolsChar = ["~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "{", "[", "}", "]", "|", "/", ":", ";", "<", ",", ">", ".", "?", "/"];
 
-let alphabets = [
-	["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
-	["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"],
-	["1", "2", "3", "4", "5", "6", "7", "8", "9"],
-	["~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "{", "[", "}", "]", "|", "/", ":", ";", "<", ",", ">", ".", "?", "/"],
-];
-passLengthRange.addEventListener("change", () => {
-	passLengthBox.value = passLengthRange.value;
+passLengthRange.addEventListener("input", syncPassLength);
+passLengthBox.addEventListener("input", syncPassLength);
+function syncPassLength(e) {
+	passLengthBox.value = e.target.value;
+	passLengthRange.value = e.target.value;
 	passLength = passLengthBox.value;
-});
+}
 
-let generatePass = () => {
-	let randUpper = 0;
-	let randLower = 0;
-	let randSymbol = 0;
-	let randNumber = 0;
-	let passLengthNew = passLength;
-	let checkedArray = [];
+let addToDom = (newPass) => {
+	generateBox.innerHTML = newPass.join("");
+};
 
-	checkboxes.forEach((checks) => {
-		if (checks.checked) {
-			if (checks.id == "uppercase") {
-				randUpper = Math.round(Math.random() * passLengthNew);
-				passLengthNew -= randUpper;
-			} else if (checks.id == "lowercase") {
-				randLower = Math.round(Math.random() * passLengthNew);
-				passLengthNew -= randLower;
-			} else if (checks.id == "numbers") {
-				randNumber = Math.round(Math.random() * passLengthNew);
-				passLengthNew -= randNumber;
-			} else if (checks.id == "symbols") {
-				randSymbol = Math.round(Math.random() * passLengthNew);
-				passLengthNew -= randSymbol;
-			}
-			checkedArray.push(checks);
-		}
-	});
+let newPassGenerator = (isUpper, isLower, isNumber, isSymbol) => {
+	let allValidChars = [];
+	if (isUpper == true) allValidChars = allValidChars.concat(upperCaseChars);
+	if (isLower == true) allValidChars = allValidChars.concat(lowerCaseChars);
+	if (isNumber == true) allValidChars = allValidChars.concat(numbersChar);
+	if (isSymbol == true) allValidChars = allValidChars.concat(symbolsChar);
 
-	let randChecked = checkedArray[Math.floor(Math.random() * checkedArray.length)];
-	if (randChecked.id == "uppercase") randUpper += passLengthNew;
-	else if (randChecked.id == "lowercase") randLower += passLengthNew;
-	else if (randChecked.id == "numbers") randNumber += passLengthNew;
-	else if (randChecked.id == "symbols") randSymbol += passLengthNew;
-
-	let allRandChecks = [{ upper: randUpper }, { lower: randLower }, { numbers: randNumber }, { symbols: randSymbol }];
-	console.log(allRandChecks);
-
-	console.log("upper:", randUpper);
-	console.log("randLower:", randLower);
-	console.log("randSymbol:", randSymbol);
-	console.log("randNumber:", randNumber);
-	console.log("checkedArray:", checkedArray);
+	let generatedPass = [];
+	let randIndex;
+	let i = passLength;
+	while (i != 0) {
+		randIndex = Math.floor(Math.random() * allValidChars.length);
+		generatedPass = generatedPass.concat(allValidChars[randIndex]);
+		i--;
+	}
+	addToDom(generatedPass);
 };
 
 btnGenerate.addEventListener("click", () => {
@@ -73,11 +50,15 @@ btnGenerate.addEventListener("click", () => {
 		document.getElementById("warning").style.display = "block";
 	} else {
 		document.getElementById("warning").style.display = "none";
-		generatePass();
+		newPassGenerator(uppercaseCheck.checked, lowercaseCheck.checked, numbersCheck.checked, symbolsCheck.checked);
 	}
 });
 
-/*
+copyPass.addEventListener("click", (e) => {
+	window.navigator.clipboard.writeText(generateBox.innerHTML);
+	document.querySelector("#copied").style.display = "inline-block";
 
-
-*/
+	setTimeout(() => {
+		document.querySelector("#copied").style.display = "none";
+	}, 3000);
+});
