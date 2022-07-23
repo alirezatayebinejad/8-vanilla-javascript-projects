@@ -35,13 +35,16 @@ body {
 	min-height: 100px;
 	align-items: center;
 	margin-top: 20px;
-	border-radius: 10px;
+	border-radius: 10px 10px 0 0;
 	background: #e8e8e8;
 	box-shadow: inset 7px 7px 14px #cccccc, inset -7px -7px 14px #ffffff;
 	color: #6e6e6e;
 	text-align: center;
 	padding-top: 40px;
 	font-size: 22px;
+}
+[contentEditable="true"]:empty:not(:focus):before {
+	content: attr(data-text);
 }
 .numbers {
 	display: flex;
@@ -52,7 +55,7 @@ body {
 	background-color: transparent;
 	margin: 20px 0;
 }
-.num {
+.key {
 	width: 20%;
 	height: 65px;
 	border-radius: 14px;
@@ -66,15 +69,15 @@ body {
 	cursor: pointer;
 	transition: background 0.3s;
 }
-.num:active {
+.key:active {
 	background: linear-gradient(145deg, #d1d1d1, #f8f8f8);
 }
-.num.extra {
+.key.extra {
 	border-radius: 14px;
 	background: #121212;
 	color: #afafaf;
 }
-.num.extra:active {
+.key.extra:active {
 	background-color: #303030;
 }
 
