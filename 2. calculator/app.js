@@ -18,8 +18,7 @@ let operators = [];
 let tempNum = "";
 let answer;
 function calcBoxGenerator(clickedKey) {
-	console.log("executed");
-	if (clickedKey == "back" && clickedKey == "C") {
+	if (clickedKey == "back" || clickedKey == "C" || clickedKey == "Delete" || clickedKey == "Backspace") {
 		if (clickedKey == "C" || clickedKey == "Delete") {
 			calcBox.innerHTML = "";
 			numbers = [];
@@ -28,9 +27,7 @@ function calcBoxGenerator(clickedKey) {
 			answer = null;
 		} else if (clickedKey == "back" || clickedKey == "Backspace") {
 			if (!answer) {
-				console.log("tempNum", tempNum);
 				tempNum = tempNum.slice(0, tempNum.length - 1);
-				console.log("tempNum", tempNum);
 				calcBox.innerHTML = calcBox.innerHTML.slice(0, calcBox.innerHTML.length - 1);
 			}
 		}
@@ -66,8 +63,6 @@ function calcBoxGenerator(clickedKey) {
 }
 
 function calculator(nums, oprs) {
-	console.log("numbers:", nums);
-	console.log("operators:", oprs);
 	let i = 0;
 	let op;
 	let answer = nums.reduce(function (prevValue, currentValue) {
@@ -80,7 +75,5 @@ function calculator(nums, oprs) {
 		else if (op == "÷" || op == "/") return prevValue / currentValue;
 		else return "none";
 	});
-
-	console.log(answer);
 	return answer;
 }
