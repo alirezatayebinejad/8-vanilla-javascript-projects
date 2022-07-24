@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500&display=swap");
+
+* {
+	padding: 0;
+	margin: 0;
+}
+body {
+	font-family: "Barlow", sans-serif;
+	background-color: #e8e8e8;
+	color: rgb(65, 65, 65);
+}
+
+/* head */
+
+.background {
+	background: url("images/bg1.jpg") no-repeat;
+	background-size: cover;
+	background-position-y: center;
+	height: 200px;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	position: relative;
+}
+h1 {
+	position: absolute;
+	top: 30%;
+	color: #d3d3d3;
+	font-size: 40px;
+}
+#add-btn {
+	margin-bottom: -30px;
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+}
+
+#add-btn .enter-btn {
+	height: 76px;
+	border: none;
+	background-color: #43973c;
+	border-radius: 10px;
+	font-size: larger;
+	color: white;
+	cursor: pointer;
+	padding: 20px 60px;
+	transition: 0.3s;
+}
+#add-btn .enter-btn:hover {
+	background-color: #58b150;
+}
+
+/* body */
+
+#todo-note {
+	display: flex;
+	align-items: flex-start;
+	margin-top: 50px;
+	padding: 0 30px;
+}
+
+/* to do */
+
+.todo-list {
+	width: 50%;
+}
+.todo-list .todo {
+	background-color: white;
+	width: 90%;
+	height: 40px;
+	margin: 10px;
+	padding: 10px;
+	border-radius: 10px;
+	position: relative;
+	display: flex;
+}
+.todo-list .todo-btns {
+	position: absolute;
+	right: 0;
+	margin-right: 9px;
+}
+.todo-list button {
+	background-color: red;
+	border: none;
+	padding: 5px 8px;
+	height: 40px;
+	cursor: pointer;
+	border-radius: 10px;
+}
+.todo-list img {
+	width: 20px;
+}
+.todo-list .edit-btn {
+	background-color: transparent;
+	transition: 0.2s;
+}
+.todo-list .edit-btn:hover {
+	transform: scale(1.5) rotate(50deg);
+}
+.todo-list .done-btn {
+	background-color: #44973ccb;
+	transition: 0.3s;
+}
+.todo-list .done-btn:hover {
+	background-color: #6dc764cb;
+}
+.todo-list .delete-btn {
+	background-color: #e93c3cd2;
+	transition: 0.3s;
+}
+.todo-list .delete-btn:hover {
+	background-color: #f05757d2;
+}
+/* note */
+
+.note-list {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	width: 50%;
+}
+.note-list .note {
+	width: 40%;
+	height: 200px;
+	background-color: white;
+	margin: 10px;
+	padding: 10px;
+	border-radius: 10px;
+	position: relative;
+}
+.note-list .note .note-title {
+	text-align: center;
+	background-color: rgb(236, 236, 236);
+	padding: 8px 0;
+	margin-bottom: 5px;
+	border-radius: 10px;
+	color: rgb(88, 88, 88);
+}
+.note-list button {
+	background-color: red;
+	border: none;
+	padding: 5px 8px;
+	height: 40px;
+	cursor: pointer;
+	border-radius: 10px;
+}
+.note-list .note-btns {
+	position: absolute;
+	right: 0;
+	bottom: 10px;
+	margin-right: 9px;
+}
+.note-list img {
+	width: 20px;
+}
+.note-list .edit-btn {
+	background-color: transparent;
+	transition: 0.2s;
+}
+.note-list .edit-btn:hover {
+	transform: scale(1.5) rotate(50deg);
+}
+.note-list .delete-btn {
+	background-color: #e93c3cd2;
+	transition: 0.3s;
+}
+.note-list .delete-btn:hover {
+	background-color: #f05757d2;
+}
+/* copy right */
+
+.copyright {
+	text-align: center;
+	margin: 15px;
+	color: rgb(68, 68, 68);
+}
+.copyright a {
+	text-decoration: none;
+
+	color: rgb(17, 17, 17);
+}
