@@ -40,6 +40,7 @@ todoSubmitBtn.addEventListener("click", (event) => {
 	event.preventDefault();
 	todos.push({ title: newTodoTitle.value });
 	todoToDom(newTodoTitle.value);
+	localStorageUpdate();
 	newTodoTitle.value = "";
 	closePopup();
 });
@@ -47,6 +48,7 @@ noteSubmitBtn.addEventListener("click", (event) => {
 	event.preventDefault();
 	notes.push({ title: newNoteTitle.value, description: newNoteDescription.value });
 	noteToDom(newNoteTitle.value, newNoteDescription.value);
+	localStorageUpdate();
 	newTodoTitle.value = "";
 	closePopup();
 });
@@ -80,3 +82,25 @@ function noteToDom(title, description) {
     `
 	);
 }
+
+//set local storage for storing data so it will not deleted if we refresh the page
+
+function localStorageUpdate() {
+	localStorage.setItem("todos", JSON.stringify(todos));
+	localStorage.setItem("notes", JSON.stringify(notes));
+	console.log("added to local storage");
+}
+function localstorageGet() {
+	todos = JSON.parse(localStorage.getItem("todos"));
+	console.log(todos);
+	todos.forEach((todo) => {
+		todoToDom(todo.title);
+	});
+
+	notes = JSON.parse(localStorage.getItem("notes"));
+	console.log(notes);
+	notes.forEach((note) => {
+		noteToDom(note.title, note.description);
+	});
+}
+localstorageGet();
