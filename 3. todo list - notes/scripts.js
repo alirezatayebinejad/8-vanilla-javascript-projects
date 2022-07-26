@@ -8,14 +8,17 @@ let popupsSection = document.querySelector("#popups");
 let notePopup = document.querySelector("#newnote-popup");
 let todoPopup = document.querySelector("#newtodo-popup");
 let closePopupBtn = document.querySelectorAll(".close-popup-btn");
-newNoteBtn.addEventListener("click", () => {
-	popupsSection.style.display = "flex";
-	notePopup.style.display = "flex";
-});
-newTodoBtn.addEventListener("click", () => {
+
+newTodoBtn.addEventListener("click", openTodoPopup);
+newNoteBtn.addEventListener("click", openNotePopup);
+function openTodoPopup() {
 	popupsSection.style.display = "flex";
 	todoPopup.style.display = "flex";
-});
+}
+function openNotePopup() {
+	popupsSection.style.display = "flex";
+	notePopup.style.display = "flex";
+}
 closePopupBtn.forEach((closeBtn) => {
 	closeBtn.addEventListener("click", closePopup);
 });
@@ -27,8 +30,6 @@ function closePopup() {
 
 //popups functions to add or remove notes or todo to DOM
 
-let todos = [{ title: "this is a test for todo title in array" }];
-let notes = [{ title: "test for note title in array", description: "this is a test for description of a note in array for test" }];
 let todoSubmitBtn = document.querySelector("#todo-submit");
 let noteSubmitBtn = document.querySelector("#note-submit");
 let newTodoTitle = document.querySelector("#newtodo-title");
@@ -38,18 +39,16 @@ let todoList = document.querySelector(".todo-list");
 let noteList = document.querySelector(".note-list");
 todoSubmitBtn.addEventListener("click", (event) => {
 	event.preventDefault();
-	todos.push({ title: newTodoTitle.value });
 	todoToDom(newTodoTitle.value);
-	localStorageUpdate();
+	addTodoTolocalStorage(newTodoTitle.value);
 	newTodoTitle.value = "";
 	closePopup();
 });
 noteSubmitBtn.addEventListener("click", (event) => {
 	event.preventDefault();
-	notes.push({ title: newNoteTitle.value, description: newNoteDescription.value });
 	noteToDom(newNoteTitle.value, newNoteDescription.value);
-	localStorageUpdate();
-	newTodoTitle.value = "";
+	addNotesTolocalStorage(newNoteTitle.value, newNoteDescription.value);
+	newNoteTitle.value = "";
 	closePopup();
 });
 function todoToDom(title) {
@@ -59,13 +58,14 @@ function todoToDom(title) {
     <div class="todo">
 		<div class="todo-text">${title}</div>
 		<div class="todo-btns">
-			<button class="edit-btn"><img src="images/edit-icon.png" alt="edit" /></button>
 			<button class="done-btn"><img src="images/done-icon.png" alt="done" /></button>
 			<button class="delete-btn"><img src="images/trash-icon.png" alt="trash" /></button>
 		</div>
 	</div>
     `
 	);
+	addEvenForDeleteBtn();
+	addEvenForSubmitBtn();
 }
 function noteToDom(title, description) {
 	noteList.insertAdjacentHTML(
@@ -75,32 +75,102 @@ function noteToDom(title, description) {
         <h4 class="note-title">${title}</h4>
         <div class="note-text">${description}</div>
         <div class="note-btns">
-            <button class="edit-btn"><img src="images/edit-icon.png" alt="edit" /></button>
             <button class="delete-btn"><img src="images/trash-icon.png" alt="trash" /></button>
         </div>
     </div>
     `
 	);
+	addEvenForDeleteBtn();
+	addEvenForSubmitBtn();
 }
 
 //set local storage for storing data so it will not deleted if we refresh the page
+//structures
 
-function localStorageUpdate() {
-	localStorage.setItem("todos", JSON.stringify(todos));
-	localStorage.setItem("notes", JSON.stringify(notes));
-	console.log("added to local storage");
-}
-function localstorageGet() {
+let todos = [];
+let notes = [];
+
+window.addEventListener("load", localstorageToDom);
+function localstorageToDom() {
+	if (!localStorage.getItem("todos")) localStorage.setItem("todos", JSON.stringify(todos));
+	if (!localStorage.getItem("notes")) localStorage.setItem("notes", JSON.stringify(notes));
+
 	todos = JSON.parse(localStorage.getItem("todos"));
-	console.log(todos);
+	notes = JSON.parse(localStorage.getItem("notes"));
+
 	todos.forEach((todo) => {
 		todoToDom(todo.title);
 	});
-
-	notes = JSON.parse(localStorage.getItem("notes"));
-	console.log(notes);
 	notes.forEach((note) => {
 		noteToDom(note.title, note.description);
 	});
+	console.log("loaded");
 }
-localstorageGet();
+function addTodoTolocalStorage(todoTitle) {
+	todos.push({ title: todoTitle, done: false });
+	localStorage.setItem("todos", JSON.stringify(todos));
+	console.log("addTodoTolocalStorage");
+}
+function addNotesTolocalStorage(noteTitle, noteDescription) {
+	notes.push({ title: noteTitle, description: noteDescription });
+	localStorage.setItem("notes", JSON.stringify(notes));
+	console.log("addNotesTolocalStorage");
+}
+
+//todo and note buttons functionality
+function addEvenForDeleteBtn() {
+	let deleteBtn = document.querySelectorAll(".delete-btn");
+	deleteBtn.forEach((btn) => {
+		btn.addEventListener("click", deleteCard);
+	});
+}
+addEvenForDeleteBtn();
+
+function deleteCard() {
+	this.parentElement.parentElement.remove();
+	if (this.parentElement.parentElement.querySelector(".todo-text")) {
+		let tempTodos = JSON.parse(localStorage.getItem("todos"));
+		let todoTitle = this.parentElement.parentElement.querySelector(".todo-text").innerHTML;
+		todos = tempTodos.filter((todo) => {
+			return todo.title != todoTitle;
+		});
+		localStorage.setItem("todos", JSON.stringify(todos));
+	} else {
+		let tempNote = JSON.parse(localStorage.getItem("notes"));
+		let noteTitle = this.parentElement.parentElement.querySelector(".note-title").innerHTML;
+		notes = tempNote.filter((note) => {
+			return note.title != noteTitle;
+		});
+		localStorage.setItem("notes", JSON.stringify(notes));
+	}
+}
+
+function addEvenForSubmitBtn() {
+	let submitBtn = document.querySelectorAll(".done-btn");
+	submitBtn.forEach((btn) => {
+		btn.addEventListener("click", completedCard);
+	});
+}
+addEvenForSubmitBtn();
+
+function completedCard() {
+	let completedTodo = this.parentElement.parentElement;
+	let completedTodoTitle = this.parentElement.parentElement.querySelector(".todo-text").innerHTML;
+	todos = JSON.parse(localStorage.getItem("todos"));
+
+	todos.forEach((todo) => {
+		if (todo.title == completedTodoTitle) {
+			if (todo.done == false) {
+				todo.done = true;
+				completedTodo.style.backgroundColor = "#4ea347";
+				completedTodo.style.color = "white";
+				localStorage.setItem("todos", JSON.stringify(todos));
+			} else {
+				todo.done = false;
+				completedTodo.style.backgroundColor = "white";
+				completedTodo.style.color = "rgb(65, 65, 65)";
+				localStorage.setItem("todos", JSON.stringify(todos));
+			}
+		}
+	});
+}
