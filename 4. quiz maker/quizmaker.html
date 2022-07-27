@@ -4,9 +4,67 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Quiz maker</title>
+		<title>Create your Quiz</title>
 		<link rel="stylesheet" href="quizmaker.css" />
 		<script src="quizmaker.js" defer></script>
 	</head>
-	<body></body>
+	<body>
+		<h1 id="title">Quiz Maker</h1>
+		<a id="goto-home-btn" href="main.html"><button>go to home</button></a>
+		<div id="create-quiz">
+			<h2>Create your Quiz</h2>
+			<form id="create-form">
+				<label for="create-quiz-title">quiz title:</label>
+				<input type="text" id="create-quiz-title" name="title" />
+				<label for="create-quiz-description">quiz description:</label>
+				<textarea name="description" id="create-quiz-description" cols="30" rows="5"></textarea>
+				<div class="numbers">
+					<label for="create-quiz-count">how many questions:</label>
+					<input type="number" id="create-quiz-count" name="count" min="0" /><br />
+					<label for="create-quiz-timeout">quiz timeout (min):</label>
+					<input type="number" id="create-quiz-timeout" name="count" min="0" />
+				</div>
+				<div id="question-maker">
+					<label for="create-quiz-question">add your questions: <span style="font-weight: bold; font-size: 25px">1.</span></label>
+					<input type="text" id="create-quiz-question" name="question" />
+					<div class="answers">
+						<div>
+							<label for="answer1">1.</label>
+							<input id="answer1" type="text" name="1" />
+						</div>
+
+						<div>
+							<label for="answer2">2.</label>
+							<input id="answer2" type="text" name="2" />
+						</div>
+						<div>
+							<label for="answer3">3.</label>
+							<input id="answer3" type="text" name="3" />
+						</div>
+						<div>
+							<label for="answer4">4.</label>
+							<input id="answer4" type="text" name="4" />
+						</div>
+					</div>
+					<h3>which is the correct answer:</h3>
+					<div class="correct-answer">
+						<label for="correct">1.</label>
+						<input type="radio" id="correct1" name="" />
+						<label for="correct">2.</label>
+						<input type="radio" id="correct2" name="correct" />
+						<label for="correct">3.</label>
+						<input type="radio" id="correct3" name="correct" />
+						<label for="correct">4.</label>
+						<input type="radio" id="correct4" name="correct" />
+					</div>
+					<button>add question</button>
+				</div>
+				<button id="create-form-sumbit" type="submit">Submit the Quiz</button>
+			</form>
+		</div>
+		<p class="copyright">
+			created by Alireza Tayebinejad from
+			<a href="https://github.com/vibracode">@vibracode</a>
+		</p>
+	</body>
 </html>

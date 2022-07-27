@@ -16,14 +16,14 @@
 				<button class="enter-btn" id="new-todo">add a new ToDo</button>
 			</div>
 		</section>
-		<section style="display: none" id="popups">
-			<form style="display: none" id="newtodo-popup">
+		<section id="popups" style="display: none">
+			<form id="newtodo-popup" style="display: none">
 				<img class="close-popup-btn" src="images/close-icon.png" alt="close" />
 				<label for="newtodo-title">Enter todo:</label>
 				<input type="text" id="newtodo-title" />
 				<button id="todo-submit">Add to notes</button>
 			</form>
-			<form style="display: none" id="newnote-popup">
+			<form id="newnote-popup" style="display: none">
 				<img class="close-popup-btn" src="images/close-icon.png" alt="close" />
 				<label for="newnote-title">Enter note title:</label>
 				<input type="text" id="newnote-title" /><br />
@@ -34,40 +34,8 @@
 		</section>
 		<div class="center-lists">
 			<section id="todo-note">
-				<div class="note-list">
-					<div class="note">
-						<h4 class="note-title">note title here</h4>
-						<div class="note-text">Lorem ipsum, dolor sit voluptate quae atque. Assumenda!</div>
-						<div class="note-btns">
-							<button class="delete-btn"><img src="images/trash-icon.png" alt="trash" /></button>
-						</div>
-					</div>
-					<div class="note">
-						<h4 class="note-title">note title here</h4>
-						<div class="note-text">
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut exercitationem ullam iusto adipisci delectus tempora ea odit hic labore non
-							maiores in aliquid, omnis neque quis voluptate quae atque. Assumenda!
-						</div>
-						<div class="note-btns">
-							<button class="delete-btn"><img src="images/trash-icon.png" alt="trash" /></button>
-						</div>
-					</div>
-				</div>
-				<div class="todo-list">
-					<div class="todo">
-						<div class="todo-text">this is a to do text</div>
-						<div class="todo-btns">
-							<button class="done-btn"><img src="images/done-icon.png" alt="done" /></button>
-							<button class="delete-btn"><img src="images/trash-icon.png" alt="trash" /></button>
-						</div>
-					</div>
-					<div class="todo">
-						<div class="todo-text">this is a to do text</div>
-						<div class="todo-btns">
-							<button class="done-btn"><img src="images/done-icon.png" alt="done" /></button>
-							<button class="delete-btn"><img src="images/trash-icon.png" alt="trash" /></button>
-						</div>
-					</div>
+				<div class="note-list"></div>
+				<div class="todo-list"></div>
 			</section>
 		</div>
 		<p class="copyright">
