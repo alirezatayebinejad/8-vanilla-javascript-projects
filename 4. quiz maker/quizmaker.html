@@ -25,39 +25,38 @@
 					<input type="number" id="create-quiz-timeout" name="count" min="0" />
 				</div>
 				<div id="question-maker">
-					<label for="create-quiz-question">add your questions: <span style="font-weight: bold; font-size: 25px">1.</span></label>
+					<label for="create-quiz-question">add your questions: <span id="show-count" style="font-weight: bold; font-size: 25px">1.</span></label>
 					<input type="text" id="create-quiz-question" name="question" />
 					<div class="answers">
 						<div>
 							<label for="answer1">1.</label>
-							<input id="answer1" type="text" name="1" />
+							<input id="answer1" class="options" type="text" name="1" />
 						</div>
-
 						<div>
 							<label for="answer2">2.</label>
-							<input id="answer2" type="text" name="2" />
+							<input id="answer2" class="options" type="text" name="2" />
 						</div>
 						<div>
 							<label for="answer3">3.</label>
-							<input id="answer3" type="text" name="3" />
+							<input id="answer3" class="options" type="text" name="3" />
 						</div>
 						<div>
 							<label for="answer4">4.</label>
-							<input id="answer4" type="text" name="4" />
+							<input id="answer4" class="options" type="text" name="4" />
 						</div>
 					</div>
 					<h3>which is the correct answer:</h3>
 					<div class="correct-answer">
 						<label for="correct">1.</label>
-						<input type="radio" id="correct1" name="" />
+						<input type="radio" id="correct1" class="correctA" name="correct" />
 						<label for="correct">2.</label>
-						<input type="radio" id="correct2" name="correct" />
+						<input type="radio" id="correct2" class="correctA" name="correct" />
 						<label for="correct">3.</label>
-						<input type="radio" id="correct3" name="correct" />
+						<input type="radio" id="correct3" class="correctA" name="correct" />
 						<label for="correct">4.</label>
-						<input type="radio" id="correct4" name="correct" />
+						<input type="radio" id="correct4" class="correctA" name="correct" />
 					</div>
-					<button>add question</button>
+					<button id="question-add-btn">add question</button>
 				</div>
 				<button id="create-form-sumbit" type="submit">Submit the Quiz</button>
 			</form>
