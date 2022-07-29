@@ -20,10 +20,12 @@ class QuizMaker {
 
 	render() {
 		let count;
+		let tempCount;
 
 		let countInput = document.querySelector("#create-quiz-count");
 		countInput.addEventListener("change", () => {
 			count = document.querySelector("#create-quiz-count").value;
+			tempCount = count;
 		});
 
 		let qId = 1;
@@ -34,7 +36,10 @@ class QuizMaker {
 			questions.push(this.creatQuestions(count, qId));
 			count--;
 			qId++;
-			document.querySelector("#show-count").innerHTML = `${qId}.`;
+			if (qId <= tempCount) {
+				document.querySelector("#show-count").innerHTML = `${qId}.`;
+			}
+
 			/* empty values for next input*/
 			document.querySelector("#create-quiz-question").value = "";
 			document.querySelectorAll(".options").forEach((answer) => {
@@ -93,13 +98,17 @@ class QuizMaker {
 		console.log(quizes);
 	}
 	updateLocalStorage() {
+		let i = 1;
 		let allQuizes = JSON.parse(localStorage.getItem("quizes"));
 		quizes.forEach((q) => {
 			allQuizes.push(q);
 		});
-		quizes = [];
+		allQuizes.forEach((quiz) => {
+			quiz.id = i;
+			i++;
+		});
+		localStorage.setItem("quizes", JSON.stringify(allQuizes));
 	}
 }
-let yo = document.querySelector("#create-form-sumbit");
 
 let q = new QuizMaker();
