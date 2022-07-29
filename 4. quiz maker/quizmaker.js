@@ -56,7 +56,7 @@ class QuizMaker {
 			title = document.querySelector("#create-quiz-title").value;
 			description = document.querySelector("#create-quiz-description").value;
 			timeout = document.querySelector("#create-quiz-timeout").value;
-			this.createTheQuiz(quizes.length, title, description, count, timeout, questions);
+			this.createTheQuiz(quizes.length, title, description, tempCount, timeout, questions);
 			this.updateLocalStorage();
 			/* empty values for next input*/
 			document.querySelector("#create-quiz-title").value = "";
@@ -95,7 +95,6 @@ class QuizMaker {
 	createTheQuiz(id, title, description, count, timeout, questions) {
 		let newQuiz = new Quiz(id, title, description, count, timeout, questions);
 		quizes.push(newQuiz);
-		console.log(quizes);
 	}
 	updateLocalStorage() {
 		let i = 1;

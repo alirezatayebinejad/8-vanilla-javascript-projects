@@ -10,7 +10,7 @@
 	</head>
 	<body>
 		<header>
-			<h1>this is the Quiz title</h1>
+			<h1 id="header-quiz-title">this is the Quiz title</h1>
 		</header>
 		<main>
 			<div class="quiz-description">
@@ -24,110 +24,17 @@
 			<div class="quiz-meta">
 				<div class="quiz-time">
 					<img src="images/timout-icon.png" alt="timer icon" />
-					<p class="quiz-countdown">timeout: <span>13:42</span></p>
+					<p class="quiz-countdown">timeout: <span id="timer-value">13:42</span></p>
 				</div>
 				<div class="quiz-count">
-					<p class="quiz-countdown">questions: <span>20</span></p>
+					<p class="quiz-countdown">questions: <span id="count-value">20</span></p>
 				</div>
 			</div>
+
 			<div class="question-list">
-				<div class="question">
-					<p class="question-number">1</p>
-					<div>
-						<p class="question-title">.this is the question title.</p>
-						<div class="question-answers">
-							<div>
-								<input type="radio" id="1answer1" name="1answer" />
-								<label for="1answer1">1.first</label>
-							</div>
-							<div>
-								<input type="radio" id="1answer2" name="1answer" />
-								<label for="1answer2">2.second</label>
-							</div>
-							<div>
-								<input type="radio" id="1answer3" name="1answer" />
-								<label for="1answer3">3.third</label>
-							</div>
-							<div>
-								<input type="radio" id="1answer4" name="1answer" />
-								<label for="1answer4">4.fourth</label>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="question">
-					<p class="question-number">2</p>
-					<div>
-						<p class="question-title">.this is the question title.</p>
-						<div class="question-answers">
-							<div>
-								<input type="radio" id="2answer1" name="2answer" />
-								<label for="2answer1">1.first</label>
-							</div>
-							<div>
-								<input type="radio" id="2answer2" name="2answer" />
-								<label for="2answer2">2.second</label>
-							</div>
-							<div>
-								<input type="radio" id="2answer3" name="2answer" />
-								<label for="2answer3">3.third</label>
-							</div>
-							<div>
-								<input type="radio" id="2answer4" name="2answer" />
-								<label for="2answer4">4.fourth</label>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="question">
-					<p class="question-number">3</p>
-					<div>
-						<p class="question-title">.this is the question title.</p>
-						<div class="question-answers">
-							<div>
-								<input type="radio" id="3answer1" name="3answer" />
-								<label for="3answer1">1.first</label>
-							</div>
-							<div>
-								<input type="radio" id="3answer2" name="3answer" />
-								<label for="3answer2">2.second</label>
-							</div>
-							<div>
-								<input type="radio" id="3answer3" name="3answer" />
-								<label for="3answer3">3.third</label>
-							</div>
-							<div>
-								<input type="radio" id="3answer4" name="3answer" />
-								<label for="3answer4">4.fourth</label>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="question">
-					<p class="question-number">4</p>
-					<div>
-						<p class="question-title">.this is the question title.</p>
-						<div class="question-answers">
-							<div>
-								<input type="radio" id="4answer1" name="4answer" />
-								<label for="4answer1">1.first</label>
-							</div>
-							<div>
-								<input type="radio" id="4answer2" name="4answer" />
-								<label for="4answer2">2.second</label>
-							</div>
-							<div>
-								<input type="radio" id="4answer3" name="4answer" />
-								<label for="4answer3">3.third</label>
-							</div>
-							<div>
-								<input type="radio" id="4answer4" name="4answer" />
-								<label for="4answer4">4.fourth</label>
-							</div>
-						</div>
-					</div>
-				</div>
+				<!-- dynamicly render all the questions with javascript -->
 			</div>
+
 			<div id="submit-all">
 				<button id="submit-adswers">submit all the answers</button> <a href="main.html"><button id="cancel-quiz">cancel</button></a>
 			</div>
