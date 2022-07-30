@@ -22,11 +22,24 @@ body {
 	text-align: center;
 	margin-top: 40px;
 }
+.gameplay-div {
+	display: flex;
+	justify-content: center;
+	margin: 30px 0;
+}
 .player-title {
 	color: white;
 	text-align: center;
-	margin: 30px 0;
 	font-size: 18px;
+}
+.reset-btn {
+	margin-left: 20px;
+	padding: 10px;
+	border: none;
+	color: white;
+	border-radius: 5px;
+	background-color: rgb(93, 19, 190);
+	cursor: pointer;
 }
 main {
 	display: flex;
@@ -48,4 +61,15 @@ main {
 .boxes {
 	background-color: rgba(0, 0, 0, 0.774);
 	cursor: pointer;
+}
+
+.copyright {
+	text-align: center;
+	margin: 15px;
+	color: rgb(202, 202, 202);
+}
+.copyright a {
+	text-decoration: none;
+
+	color: rgb(240, 240, 240);
 }
