@@ -1,4 +1,13 @@
 "use strict";
+let titleLogo = document.querySelector(".title");
+let bodyElem = document.querySelector("body");
+window.addEventListener("load", () => {
+	let randNum = Math.ceil(Math.random() * 5);
+	bodyElem.style.backgroundImage = `url('images/bg${randNum}.jpg')`;
+	if (randNum == 3 || randNum == 4 || randNum == 5) {
+		titleLogo.style.color = "white";
+	}
+});
 
 let cityInput = document.querySelector("#get-city");
 cityInput.addEventListener("keypress", (event) => {
@@ -37,7 +46,6 @@ function addDataToDom(data) {
 let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 function getDate() {
 	let newTime = new Date();
-	console.log(newTime);
 	let month = months[newTime.getMonth()];
 	return `${newTime.getDate()} ${month} ${newTime.getFullYear()}`;
 }
