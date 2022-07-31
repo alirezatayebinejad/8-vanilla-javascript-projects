@@ -26,7 +26,7 @@ header .weather-icon {
 	margin-bottom: -20px;
 	margin-right: 20px;
 }
-header .get-city {
+header #get-city {
 	width: 200px;
 	position: relative;
 	margin: auto;
@@ -52,6 +52,9 @@ main .info-container {
 	padding: 20px;
 	text-align: center;
 }
+#get-city {
+	text-align: center;
+}
 .city-name {
 	font-size: 23px;
 	margin: 20px 0;
@@ -63,4 +66,16 @@ main .info-container {
 }
 .weather-condition {
 	margin-bottom: 20px;
+}
+
+/* copyright */
+.copyright {
+	text-align: center;
+	margin: 15px;
+	color: rgb(202, 202, 202);
+}
+.copyright a {
+	text-decoration: none;
+
+	color: rgb(240, 240, 240);
 }
