@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>movie finder</title>
 		<link rel="stylesheet" href="style.css" />
-		<script src="components/movie-card/movie-card.js"></script>
+		<script src="scripts.js"></script>
 	</head>
 	<body>
 		<header>
@@ -18,11 +18,18 @@
 		</header>
 		<main>
 			<div id="movies-container">
-				<movie-card></movie-card>
-				<movie-card></movie-card>
-				<movie-card></movie-card>
-				<movie-card></movie-card>
-				<movie-card></movie-card>
+				<div class="movies">
+					<img src="images/stranger.jpg" alt="" class="movies-image" />
+					<div class="movies-stars">
+						<img src="images/star-yellow.png" alt="" class="star" />
+						<img src="images/star-yellow.png" alt="" class="star" />
+						<img src="images/star-yellow.png" alt="" class="star" />
+						<img src="images/star-yellow.png" alt="" class="star" />
+						<img src="images/star-yellow.png" alt="" class="star" />
+					</div>
+					<h4 class="movies-title">Stranger Things</h4>
+					<p class="movies-genre">sci-fi/comedy</p>
+				</div>
 			</div>
 		</main>
 	</body>
