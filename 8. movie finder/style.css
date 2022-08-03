@@ -49,7 +49,30 @@ header {
 	height: 80%;
 	color: white;
 }
-
+#buttons {
+	position: relative;
+	margin: auto;
+	margin-top: 20px;
+	padding: 10px;
+	background-color: white;
+	border-radius: 15px;
+	max-width: 1200px;
+	text-align: center;
+	display: flex;
+	justify-content: space-around;
+}
+#buttons button {
+	cursor: pointer;
+	border: none;
+	margin: 2px;
+	padding: 20px;
+	background-color: #f5c518;
+	border-radius: 10px;
+	transition: background-color 0.3s;
+}
+#buttons button:hover {
+	background-color: #d8ac0d;
+}
 #movies-container {
 	display: flex;
 	flex-wrap: wrap;
@@ -60,12 +83,18 @@ header {
 	margin-top: 20px;
 }
 .movies {
-	max-width: 250px;
+	width: 250px;
 	background-color: rgb(255, 255, 255);
 	border-radius: 15px;
 	padding: 10px;
 	margin: 10px;
 	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+}
+.title-desc {
+	position: absolute;
+	bottom: 0;
 }
 .movies-title {
 	margin-top: 0px;
@@ -78,6 +107,7 @@ header {
 .movies-image {
 	width: 100%;
 	border-radius: 15px;
+	height: 300px;
 }
 .movies-stars img {
 	width: 30px;

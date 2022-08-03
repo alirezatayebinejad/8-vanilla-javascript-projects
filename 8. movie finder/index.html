@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>movie finder</title>
 		<link rel="stylesheet" href="style.css" />
-		<script src="scripts.js"></script>
+		<script src="scripts.js" defer></script>
 	</head>
 	<body>
 		<header>
@@ -16,21 +16,15 @@
 				<button id="search-btn"><img src="images/search-icon.png" alt="" /></button>
 			</div>
 		</header>
+
 		<main>
-			<div id="movies-container">
-				<div class="movies">
-					<img src="images/stranger.jpg" alt="" class="movies-image" />
-					<div class="movies-stars">
-						<img src="images/star-yellow.png" alt="" class="star" />
-						<img src="images/star-yellow.png" alt="" class="star" />
-						<img src="images/star-yellow.png" alt="" class="star" />
-						<img src="images/star-yellow.png" alt="" class="star" />
-						<img src="images/star-yellow.png" alt="" class="star" />
-					</div>
-					<h4 class="movies-title">Stranger Things</h4>
-					<p class="movies-genre">sci-fi/comedy</p>
-				</div>
-			</div>
+			<section id="buttons">
+				<button class="top250">top 250</button>
+				<button class="most-popular">most popular</button>
+				<button class="coming-soon">coming soon</button>
+				<button class="in-theaters">in theaters</button>
+			</section>
+			<section id="movies-container"></section>
 		</main>
 	</body>
 </html>
