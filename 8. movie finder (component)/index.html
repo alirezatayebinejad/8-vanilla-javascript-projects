@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>movie finder</title>
+		<link rel="stylesheet" href="style.css" />
+		<script src="components/movie-card/movie-card.js"></script>
+	</head>
+	<body>
+		<header>
+			<h1 id="title">Movie finder App</h1>
+			<div id="search-container">
+				<input id="search" name="search" type="text" placeholder="search for a movie" />
+				<button id="search-btn"><img src="images/search-icon.png" alt="" /></button>
+			</div>
+		</header>
+		<main>
+			<div id="movies-container">
+				<movie-card></movie-card>
+				<movie-card></movie-card>
+				<movie-card></movie-card>
+				<movie-card></movie-card>
+				<movie-card></movie-card>
+			</div>
+		</main>
+	</body>
+</html>
