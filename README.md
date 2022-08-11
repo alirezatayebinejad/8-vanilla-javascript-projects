@@ -15,4 +15,4 @@ most do these to get comfortable with javascript befor you move on to frameworks
 
 ## :heavy_check_mark: License
 
-free for personal uses but if you want to add to your resume or something like that a least change the design of the programs :heart:
+free for personal uses but if you want to add to your resume or something like that at least change the design of the programs :heart:
