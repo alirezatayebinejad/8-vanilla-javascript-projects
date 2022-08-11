@@ -18,19 +18,24 @@ body {
 }
 
 .title {
-	color: rgb(219, 219, 219);
+	color: rgb(255, 255, 255);
+	text-shadow: 0 0 10px black;
 	text-align: center;
-	margin-top: 40px;
+	margin-top: 20px;
 }
 .gameplay-div {
 	display: flex;
 	justify-content: center;
 	margin: 30px 0;
+	font-weight: bold;
 }
 .player-title {
+	text-shadow: 0 0 10px black;
 	color: white;
 	text-align: center;
 	font-size: 18px;
+	background-color: rgba(0, 0, 0, 0.568);
+	padding: 20px;
 }
 .reset-btn {
 	margin-left: 20px;

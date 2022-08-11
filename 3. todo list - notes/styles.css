@@ -133,38 +133,35 @@ h1 {
 /* body */
 
 #todo-note {
-	display: flex;
-	justify-content: center;
-	align-items: flex-start;
-	margin-top: 50px;
-	padding: 0 30px;
 	max-width: 1200px;
-}
-.center-lists {
-	display: flex;
-	justify-content: center;
+	position: relative;
+	margin: auto;
+	margin-top: 50px;
+	display: grid;
+	grid-template-columns: 50% 50%;
 }
 
 /* to do */
 
 .todo-list {
-	width: 50%;
+	grid-column: 1 / 2;
 }
 .todo-list .todo {
-	background-color: white;
-	width: 90%;
 	min-height: 40px;
+	background-color: white;
 	margin: 10px;
 	padding: 10px;
 	border-radius: 10px;
 	position: relative;
 	display: flex;
+	transition: box-shadow 0.3s;
 }
 .todo-list .todo:hover {
 	box-shadow: 0 0 10px rgb(189, 189, 189);
 }
 .todo-list .todo .todo-text {
 	max-width: 80%;
+	word-wrap: break-word;
 }
 .todo-list .todo-btns {
 	position: absolute;
@@ -172,7 +169,6 @@ h1 {
 	margin-right: 9px;
 }
 .todo-list button {
-	background-color: red;
 	border: none;
 	padding: 5px 8px;
 	height: 40px;
@@ -201,24 +197,38 @@ h1 {
 /* note */
 
 .note-list {
+	grid-column: 2 / 3;
 	display: flex;
-	justify-content: center;
 	flex-wrap: wrap;
-	width: 50%;
+	justify-content: center;
 }
 .note-list .note {
 	width: 40%;
-	height: 250px;
+	max-height: 200px;
+	min-height: 100px;
 	background-color: white;
 	margin: 10px;
 	padding: 10px;
 	border-radius: 10px;
 	position: relative;
-	overflow: auto;
+	overflow-y: auto;
+	transition: box-shadow 0.3s;
 }
 .note-list .note:hover {
 	box-shadow: 0 0 10px rgb(189, 189, 189);
 }
+.note-list .note::-webkit-scrollbar {
+	width: 5px;
+}
+.note-list .note::-webkit-scrollbar-track {
+	background-color: rgb(230, 230, 230);
+	border-radius: 50px;
+}
+.note-list .note::-webkit-scrollbar-thumb {
+	background-color: rgb(199, 199, 199);
+	border-radius: 50px;
+}
+
 .note-list .note .note-title {
 	text-align: center;
 	background-color: rgb(236, 236, 236);
@@ -226,9 +236,12 @@ h1 {
 	margin-bottom: 5px;
 	border-radius: 10px;
 	color: rgb(88, 88, 88);
+	word-wrap: break-word;
+}
+.note-text {
+	word-wrap: break-word;
 }
 .note-list button {
-	background-color: red;
 	border: none;
 	padding: 5px 8px;
 	height: 40px;
@@ -261,20 +274,11 @@ h1 {
 }
 .copyright a {
 	text-decoration: none;
-
 	color: rgb(17, 17, 17);
 }
-
-@media screen and (max-width: 880px) {
-	#todo-note {
-		display: inline-block;
-	}
-	.note-list {
+@media screen and (max-width: 840px) {
+	.note-list .note {
 		width: 100%;
-	}
-	.todo-list {
-		width: 100%;
-		padding-left: 18px;
 	}
 }
 @media screen and (max-width: 570px) {
@@ -283,12 +287,17 @@ h1 {
 		padding: 0px 28px;
 		min-height: 64px;
 	}
+	#todo-note {
+		grid-template-columns: 100%;
+	}
+	.note-list {
+		grid-column: 1 / -1;
+	}
 	.todo-list {
-		padding-left: 5px;
+		grid-column: 1/-1;
 	}
 }
 @media screen and (max-width: 480px) {
 	.note-list .note {
-		width: 100%;
 	}
 }

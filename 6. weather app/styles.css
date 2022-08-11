@@ -20,6 +20,7 @@ header {
 header .title {
 	margin-top: 40px;
 	text-align: center;
+	text-shadow: 0 0 50px black;
 }
 header .weather-icon {
 	width: 60px;

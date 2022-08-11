@@ -13,7 +13,7 @@ let passLength = passLengthBox.value;
 let upperCaseChars = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 let lowerCaseChars = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 let numbersChar = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
-let symbolsChar = ["~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "{", "[", "}", "]", "|", "/", ":", ";", "<", ",", ">", ".", "?", "/"];
+let symbolsChar = ["~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "{", "[", "}", "]", "|", "/", ":", ";", ",", ">", ".", "?"];
 
 passLengthRange.addEventListener("input", syncPassLength);
 passLengthBox.addEventListener("input", syncPassLength);
@@ -37,9 +37,14 @@ let newPassGenerator = (isUpper, isLower, isNumber, isSymbol) => {
 	let generatedPass = [];
 	let randIndex;
 	let i = passLength;
+	console.log("allValidChars:", allValidChars);
+
 	while (i != 0) {
 		randIndex = Math.floor(Math.random() * allValidChars.length);
 		generatedPass = generatedPass.concat(allValidChars[randIndex]);
+		console.log("randIndex:", randIndex);
+		console.log("allValidChars[randIndex]:", allValidChars[randIndex]);
+		console.log("generatedpass:", generatedPass);
 		i--;
 	}
 	addToDom(generatedPass);

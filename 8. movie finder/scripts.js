@@ -23,7 +23,7 @@ window.addEventListener("keypress", (e) => {
 });
 async function fetchSearchedFromApi(searchText) {
 	try {
-		let fetchData = await fetch(`https://imdb-api.com/en/API/Search/k_gwyhv9bu/${searchText}`);
+		let fetchData = await fetch(`https://imdb-api.com/en/API/Search/k_c4aedmri/${searchText}`);
 		let getData = await fetchData.json();
 		console.log(getData);
 		let movieTitle;
@@ -49,7 +49,7 @@ top250.addEventListener("click", () => {
 });
 async function fetchTop250FromApi() {
 	try {
-		let fetchData = await fetch(`https://imdb-api.com/en/API/Top250Movies/k_gwyhv9bu`);
+		let fetchData = await fetch(`https://imdb-api.com/en/API/Top250Movies/k_c4aedmri`);
 		let getData = await fetchData.json();
 		console.log(getData);
 		let movieTitle;
@@ -75,7 +75,7 @@ mostPopular.addEventListener("click", () => {
 });
 async function fetchMostPopularFromApi() {
 	try {
-		let fetchData = await fetch(`https://imdb-api.com/en/API/MostPopularMovies/k_gwyhv9bu`);
+		let fetchData = await fetch(`https://imdb-api.com/en/API/MostPopularMovies/k_c4aedmri`);
 		let getData = await fetchData.json();
 		console.log(getData);
 		let movieTitle;
@@ -101,7 +101,7 @@ comingSoon.addEventListener("click", () => {
 });
 async function fetchComingSoonFromApi() {
 	try {
-		let fetchData = await fetch(`https://imdb-api.com/en/API/ComingSoon/k_gwyhv9bu`);
+		let fetchData = await fetch(`https://imdb-api.com/en/API/ComingSoon/k_c4aedmri`);
 		let getData = await fetchData.json();
 		console.log(getData);
 		let movieTitle;
@@ -127,7 +127,7 @@ inTheather.addEventListener("click", () => {
 });
 async function fetchIntheatherFromApi() {
 	try {
-		let fetchData = await fetch(`https://imdb-api.com/en/API/InTheaters/k_gwyhv9bu`);
+		let fetchData = await fetch(`https://imdb-api.com/en/API/InTheaters/k_c4aedmri`);
 		let getData = await fetchData.json();
 		console.log(getData);
 		let movieTitle;

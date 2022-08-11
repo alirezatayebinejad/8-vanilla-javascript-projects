@@ -49,6 +49,7 @@ noteSubmitBtn.addEventListener("click", (event) => {
 	noteToDom(newNoteTitle.value, newNoteDescription.value);
 	addNotesTolocalStorage(newNoteTitle.value, newNoteDescription.value);
 	newNoteTitle.value = "";
+	newNoteDescription.value = "";
 	closePopup();
 });
 function todoToDom(title) {
@@ -73,7 +74,7 @@ function noteToDom(title, description) {
 		`
     <div class="note">
         <h4 class="note-title">${title}</h4>
-        <div class="note-text">${description}</div>
+        <p class="note-text">${description}</p>
         <div class="note-btns">
             <button class="delete-btn"><img src="images/trash-icon.png" alt="trash" /></button>
         </div>
