@@ -32,21 +32,22 @@ class TakeQuiz {
 		let timeoutMinute = +this.quiz.timeout;
 		let min = timeoutMinute - 1;
 		let sec = 59;
+		let thisTemp=this;
 		setInterval(timeoutHandler, 1000);
 		function timeoutHandler() {
-			if (sec < 0) {
-				min--;
-				sec = 59;
-				timeoutElem.innerHTML = `${min}:${sec}`;
-				sec--;
-			} else {
-				timeoutElem.innerHTML = `${min}:${sec}`;
-				sec--;
-			}
-			if (sec == 0 && min == 0) {
-				this.getQuizResult();
-				clearInterval();
-			}
+					if (sec == 0 && min == 0) {
+			timeoutElem.innerHTML = `${min}:${sec}`;
+			thisTemp.getQuizResult();
+			clearInterval();
+      } else if (sec < 0) {
+        min--;
+        sec = 59;
+        timeoutElem.innerHTML = `${min}:${sec}`;
+        sec--;
+      } else {
+        timeoutElem.innerHTML = `${min}:${sec}`;
+        sec--;
+      }
 		}
 	}
 	generateQuestions() {
